@@ -1,0 +1,11 @@
+digraph Haiku {
+    graph [goal="Write a haiku about software workflows"]
+    rankdir=LR
+
+    start [shape=Mdiamond, label="Start"]
+    exit  [shape=Msquare, label="Exit"]
+
+    compose [label="Compose", shape=tab, prompt="Write a haiku (5-7-5 syllables) about software workflows. Output only the haiku, nothing else."]
+
+    start -> compose -> exit
+}

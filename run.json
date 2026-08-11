@@ -1,0 +1,245 @@
+{
+  "title": "Write a haiku about software workflows",
+  "spec": {
+    "run_id": "01KZR5XS5EY3F6H9PZN04JRW18",
+    "settings": {
+      "project": {
+        "name": null,
+        "description": null,
+        "metadata": {}
+      },
+      "workflow": {
+        "name": null,
+        "description": null,
+        "graph": "workflow.fabro",
+        "metadata": {}
+      },
+      "run": {
+        "goal": {
+          "type": "inline",
+          "value": "Write a haiku about software workflows"
+        },
+        "working_dir": null,
+        "metadata": {},
+        "inputs": {},
+        "model": {
+          "provider": "deepseek",
+          "name": "deepseek-v4-flash",
+          "fallbacks": {},
+          "controls": {
+            "reasoning_effort": null,
+            "speed": null
+          }
+        },
+        "git": {
+          "author": null
+        },
+        "prepare": {
+          "steps": [],
+          "timeout_ms": 300000
+        },
+        "execution": {
+          "mode": "normal",
+          "approval": "prompt"
+        },
+        "checkpoint": {
+          "exclude_globs": [],
+          "skip_git_hooks": false,
+          "commit_timeout_ms": 30000
+        },
+        "clone": {
+          "enabled": true
+        },
+        "run_branch": {
+          "enabled": true,
+          "push": true
+        },
+        "meta_branch": {
+          "enabled": true,
+          "push": true
+        },
+        "environment": {
+          "id": "default",
+          "provider": "docker",
+          "image": {
+            "docker": "buildpack-deps:noble",
+            "dockerfile": null
+          },
+          "resources": {
+            "cpu": 2,
+            "memory": "4GB",
+            "disk": null
+          },
+          "network": {
+            "mode": "allow_all",
+            "allow": []
+          },
+          "lifecycle": {
+            "preserve": false,
+            "stop_on_terminal": true,
+            "auto_stop": null
+          },
+          "labels": {},
+          "env": {}
+        },
+        "notifications": {},
+        "interviews": {
+          "provider": null,
+          "slack": null
+        },
+        "agent": {
+          "fabro_tools": false,
+          "mcps": {}
+        },
+        "hooks": [],
+        "scm": {
+          "provider": null,
+          "owner": null,
+          "repository": null,
+          "github": null
+        },
+        "pull_request": {
+          "enabled": true,
+          "draft": true,
+          "auto_merge": false,
+          "merge_strategy": "squash"
+        },
+        "artifacts": {
+          "include": []
+        },
+        "integrations": {
+          "github": {
+            "permissions": {}
+          }
+        }
+      }
+    },
+    "graph": {
+      "name": "Haiku",
+      "nodes": {
+        "start": {
+          "id": "start",
+          "attrs": {
+            "shape": {
+              "String": "Mdiamond"
+            },
+            "label": {
+              "String": "Start"
+            }
+          }
+        },
+        "exit": {
+          "id": "exit",
+          "attrs": {
+            "label": {
+              "String": "Exit"
+            },
+            "shape": {
+              "String": "Msquare"
+            }
+          }
+        },
+        "compose": {
+          "id": "compose",
+          "attrs": {
+            "prompt": {
+              "String": "Write a haiku (5-7-5 syllables) about software workflows. Output only the haiku, nothing else."
+            },
+            "shape": {
+              "String": "tab"
+            },
+            "label": {
+              "String": "Compose"
+            }
+          }
+        }
+      },
+      "edges": [
+        {
+          "from": "start",
+          "to": "compose",
+          "attrs": {}
+        },
+        {
+          "from": "compose",
+          "to": "exit",
+          "attrs": {}
+        }
+      ],
+      "attrs": {
+        "goal": {
+          "String": "Write a haiku about software workflows"
+        },
+        "rankdir": {
+          "String": "LR"
+        }
+      }
+    },
+    "graph_source": "digraph Haiku {\n    graph [goal=\"Write a haiku about software workflows\"]\n    rankdir=LR\n\n    start [shape=Mdiamond, label=\"Start\"]\n    exit  [shape=Msquare, label=\"Exit\"]\n\n    compose [label=\"Compose\", shape=tab, prompt=\"Write a haiku (5-7-5 syllables) about software workflows. Output only the haiku, nothing else.\"]\n\n    start -> compose -> exit\n}\n",
+    "workflow_slug": "01-prompt",
+    "source_directory": "/Users/apple/workspace/software-factory-fabro-demo",
+    "provenance": {
+      "server": {
+        "version": "0.316.0-nightly.0"
+      },
+      "client": {
+        "user_agent": "fabro-cli/0.316.0-nightly.0",
+        "name": "fabro-cli",
+        "version": "0.316.0-nightly.0"
+      },
+      "subject": {
+        "kind": "user",
+        "identity": {
+          "issuer": "fabro:dev",
+          "subject": "dev"
+        },
+        "login": "dev",
+        "auth_method": "dev_token"
+      }
+    },
+    "manifest_blob": "88118b4d2e90969efd525341ac35a5489b2543df8a72c4c8e1c893be7b4377be",
+    "definition_blob": "c70beb1bd261364724660c9e88cc4bea3332a51182a86d9eacd1cfd943ddc570",
+    "git": {
+      "origin_url": "https://github.com/szgmwill/software-factory-fabro-demo",
+      "branch": "main",
+      "sha": "28dfe0860ae52667e665b3e6a647b372d8becc98",
+      "dirty": "dirty"
+    }
+  },
+  "web_url": "http://127.0.0.1:32276/runs/01KZR5XS5EY3F6H9PZN04JRW18",
+  "start": null,
+  "status": {
+    "kind": "starting"
+  },
+  "status_updated_at": "2026-08-11T10:29:38.664085Z",
+  "last_event_at": "2026-08-11T10:29:45.191642Z",
+  "pending_control": null,
+  "checkpoints": [],
+  "conclusion": null,
+  "sandbox": {
+    "kind": "ready",
+    "plan": {
+      "provider": "docker",
+      "image": "buildpack-deps:noble"
+    },
+    "instance": {
+      "provider": "docker",
+      "image": "buildpack-deps:noble",
+      "runtime": {
+        "id": "2d9e120e22c4b4e6cdbfb4d569a19bf063dd0cb94d195ea0c7fdd6bdb81afa83",
+        "working_directory": "/workspace/software-factory-fabro-demo",
+        "repo_cloned": true,
+        "clone_origin_url": "https://github.com/szgmwill/software-factory-fabro-demo",
+        "clone_branch": "main",
+        "workspace_root": "/workspace",
+        "repos_root": "/repos",
+        "primary_repo_path": "/repos/szgmwill/software-factory-fabro-demo",
+        "primary_repo_link": "/workspace/software-factory-fabro-demo"
+      }
+    }
+  },
+  "pull_request": null,
+  "superseded_by": null,
+  "pending_interviews": {},
+  "stages": {}
+}

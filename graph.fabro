@@ -1,0 +1,11 @@
+digraph Explore {
+    graph [goal="Explore the repository and write a short summary"]
+    rankdir=LR
+
+    start [shape=Mdiamond, label="Start"]
+    exit  [shape=Msquare, label="Exit"]
+
+    explore [label="Explore", prompt="Use the shell and glob tools to explore this repository. List the top-level files, then read any README or configuration files you find. Write your findings to SUMMARY.md at the repo root (a short paragraph)."]
+
+    start -> explore -> exit
+}

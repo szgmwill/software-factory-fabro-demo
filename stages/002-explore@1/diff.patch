@@ -1,0 +1,9 @@
+diff --git a/SUMMARY.md b/SUMMARY.md
+new file mode 100644
+index 0000000..557731a
+--- /dev/null
++++ b/SUMMARY.md
+@@ -0,0 +1,3 @@
++# Repository Summary
++
++This repository is a minimal Fabro (https://docs.fabro.computer) demo project. It contains no application source code — only a `.fabro` directory with configuration for the Fabro workflow engine. The project configuration (`.fabro/project.toml`) enables auto-creation of draft pull requests on successful workflow runs, and a single example workflow (`.fabro/workflows/hello/`) defines a simple "Hello" graph (Start → Greet → Exit) that prompts the agent to introduce itself as a test of the workflow engine. The repo has a single commit ("chore: add initial fabro project configuration") and no README or documentation files.

@@ -208,7 +208,7 @@
     "kind": "running"
   },
   "status_updated_at": "2026-08-13T11:07:13.810709Z",
-  "last_event_at": "2026-08-13T11:07:29.424282Z",
+  "last_event_at": "2026-08-13T11:07:35.806842Z",
   "pending_control": null,
   "checkpoints": [
     {
@@ -248,9 +248,9 @@
       "diff": {}
     },
     {
-      "seq": 0,
+      "seq": 69,
       "checkpoint": {
-        "timestamp": "2026-08-13T11:07:29.447489Z",
+        "timestamp": "2026-08-13T11:07:35.806517Z",
         "current_node": "explore",
         "completed_nodes": [
           "start",
@@ -258,23 +258,23 @@
         ],
         "node_retries": {},
         "context_values": {
-          "internal.run_id": "01KZXCVYRGARFZY4VWKSKQ80MV",
-          "failure_class": "",
-          "internal.retry_count.start": 0,
-          "graph.goal": "Explore the repository and write a short summary",
-          "internal.retry_count.explore": 0,
-          "thread.start.current_node": "explore",
-          "last_response": "Done. I explored the repository and wrote the summary to `SUMMARY.md`.\n\n**What I found:**\n- **Top-level:** only `.fabro/` and `.git/` — no source code or README.\n- **`.fabro/project.toml`:** Fabro p",
-          "last_stage": "explore",
-          "failure_signature": "",
-          "internal.thread_id": "start",
+          "current_node": "explore",
+          "graph.rankdir": "LR",
           "internal.node_visit_count": 1,
+          "internal.retry_count.explore": 0,
+          "internal.work_dir": "/workspace/software-factory-fabro-demo",
+          "last_response": "Done. I explored the repository and wrote the summary to `SUMMARY.md`.\n\n**What I found:**\n- **Top-level:** only `.fabro/` and `.git/` — no source code or README.\n- **`.fabro/project.toml`:** Fabro p",
+          "graph.goal": "Explore the repository and write a short summary",
+          "internal.thread_id": "start",
+          "last_stage": "explore",
+          "outcome": "succeeded",
           "response.explore": "Done. I explored the repository and wrote the summary to `SUMMARY.md`.\n\n**What I found:**\n- **Top-level:** only `.fabro/` and `.git/` — no source code or README.\n- **`.fabro/project.toml`:** Fabro project config that auto-creates draft PRs on successful workflow runs.\n- **`.fabro/workflows/hello/`:** a minimal \"Hello\" workflow graph (Start → Greet → Exit) that tests the workflow engine.\n- **Git history:** a single commit adding the initial Fabro configuration.\n\n`SUMMARY.md` captures this in a short paragraph.",
           "internal.fidelity": "compact",
-          "internal.work_dir": "/workspace/software-factory-fabro-demo",
-          "current_node": "explore",
-          "outcome": "succeeded",
-          "graph.rankdir": "LR"
+          "internal.retry_count.start": 0,
+          "internal.run_id": "01KZXCVYRGARFZY4VWKSKQ80MV",
+          "thread.start.current_node": "explore",
+          "failure_signature": "",
+          "failure_class": ""
         },
         "node_outcomes": {
           "explore": {
@@ -322,15 +322,76 @@
           }
         },
         "next_node_id": "exit",
+        "git_commit_sha": "99395a40d972a2e757b0f9ad8268905b2589fe2a",
         "node_visits": {
-          "explore": 1,
-          "start": 1
+          "start": 1,
+          "explore": 1
         }
       },
-      "diff": {}
+      "diff": {
+        "patch": "diff --git a/SUMMARY.md b/SUMMARY.md\nnew file mode 100644\nindex 0000000..557731a\n--- /dev/null\n+++ b/SUMMARY.md\n@@ -0,0 +1,3 @@\n+# Repository Summary\n+\n+This repository is a minimal Fabro (https://docs.fabro.computer) demo project. It contains no application source code — only a `.fabro` directory with configuration for the Fabro workflow engine. The project configuration (`.fabro/project.toml`) enables auto-creation of draft pull requests on successful workflow runs, and a single example workflow (`.fabro/workflows/hello/`) defines a simple \"Hello\" graph (Start → Greet → Exit) that prompts the agent to introduce itself as a test of the workflow engine. The repo has a single commit (\"chore: add initial fabro project configuration\") and no README or documentation files.\n",
+        "summary": {
+          "files_changed": 1,
+          "additions": 3,
+          "deletions": 0
+        }
+      }
     }
   ],
-  "conclusion": null,
+  "conclusion": {
+    "timestamp": "2026-08-13T11:07:35.832707Z",
+    "status": "succeeded",
+    "timing": {
+      "wall_time_ms": 22001,
+      "inference_time_ms": 10546,
+      "tool_time_ms": 526,
+      "active_time_ms": 11072
+    },
+    "final_git_commit_sha": "99395a40d972a2e757b0f9ad8268905b2589fe2a",
+    "stages": [
+      {
+        "stage_id": "start",
+        "stage_label": "start",
+        "timing": {
+          "wall_time_ms": 0,
+          "inference_time_ms": 0,
+          "tool_time_ms": 0,
+          "active_time_ms": 0
+        },
+        "retries": 0
+      },
+      {
+        "stage_id": "explore",
+        "stage_label": "explore",
+        "timing": {
+          "wall_time_ms": 11527,
+          "inference_time_ms": 10546,
+          "tool_time_ms": 526,
+          "active_time_ms": 11072
+        },
+        "billing_usd_micros": 964,
+        "retries": 0
+      }
+    ],
+    "billing": {
+      "input_tokens": 4661,
+      "output_tokens": 822,
+      "total_tokens": 22523,
+      "reasoning_tokens": 144,
+      "cache_read_tokens": 16896,
+      "cache_write_tokens": 0,
+      "total_usd_micros": 964
+    },
+    "total_retries": 0,
+    "diff": {
+      "patch": "diff --git a/SUMMARY.md b/SUMMARY.md\nnew file mode 100644\nindex 0000000..557731a\n--- /dev/null\n+++ b/SUMMARY.md\n@@ -0,0 +1,3 @@\n+# Repository Summary\n+\n+This repository is a minimal Fabro (https://docs.fabro.computer) demo project. It contains no application source code — only a `.fabro` directory with configuration for the Fabro workflow engine. The project configuration (`.fabro/project.toml`) enables auto-creation of draft pull requests on successful workflow runs, and a single example workflow (`.fabro/workflows/hello/`) defines a simple \"Hello\" graph (Start → Greet → Exit) that prompts the agent to introduce itself as a test of the workflow engine. The repo has a single commit (\"chore: add initial fabro project configuration\") and no README or documentation files.\n",
+      "summary": {
+        "files_changed": 1,
+        "additions": 3,
+        "deletions": 0
+      }
+    }
+  },
   "sandbox": {
     "kind": "ready",
     "plan": {
@@ -357,6 +418,42 @@
   "superseded_by": null,
   "pending_interviews": {},
   "stages": {
+    "exit@1": {
+      "first_event_seq": 72,
+      "prompt": null,
+      "response": null,
+      "completion": {
+        "outcome": "succeeded",
+        "notes": null,
+        "failure_reason": null,
+        "timestamp": "2026-08-13T11:07:35.806842Z"
+      },
+      "provider_used": null,
+      "diff": null,
+      "script_invocation": null,
+      "script_timing": null,
+      "parallel_results": null,
+      "output": null,
+      "started_at": "2026-08-13T11:07:35.806794Z",
+      "handler": "exit",
+      "graph_visit": 1,
+      "timing": {
+        "wall_time_ms": 0,
+        "inference_time_ms": 0,
+        "tool_time_ms": 0,
+        "active_time_ms": 0
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0,
+        "reasoning_tokens": 0,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "agent_control": "running",
+      "state": "succeeded"
+    },
     "start@1": {
       "first_event_seq": 17,
       "prompt": null,
@@ -397,7 +494,12 @@
       "first_event_seq": 21,
       "prompt": null,
       "response": null,
-      "completion": null,
+      "completion": {
+        "outcome": "succeeded",
+        "notes": "Stage completed: explore",
+        "failure_reason": null,
+        "timestamp": "2026-08-13T11:07:29.447329Z"
+      },
       "provider_used": {
         "mode": "agent",
         "provider": "deepseek",
@@ -411,8 +513,12 @@
       "started_at": "2026-08-13T11:07:17.916303Z",
       "handler": "agent",
       "graph_visit": 1,
-      "live_inference_ms": 10542,
-      "live_tool_ms": 523,
+      "timing": {
+        "wall_time_ms": 11527,
+        "inference_time_ms": 10546,
+        "tool_time_ms": 526,
+        "active_time_ms": 11072
+      },
       "usage": {
         "input_tokens": 4661,
         "output_tokens": 822,
@@ -581,7 +687,7 @@
         "warnings": []
       },
       "agent_control": "running",
-      "state": "running"
+      "state": "succeeded"
     }
   }
 }

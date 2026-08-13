@@ -1,0 +1,242 @@
+{
+  "title": "Explore the repository and write a short summary",
+  "spec": {
+    "run_id": "01KZXCH5HAZ6BPR3Y4FKG431FC",
+    "settings": {
+      "project": {
+        "name": null,
+        "description": null,
+        "metadata": {}
+      },
+      "workflow": {
+        "name": null,
+        "description": null,
+        "graph": "workflow.fabro",
+        "metadata": {}
+      },
+      "run": {
+        "goal": {
+          "type": "inline",
+          "value": "Explore the repository and write a short summary"
+        },
+        "working_dir": null,
+        "metadata": {},
+        "inputs": {},
+        "model": {
+          "provider": "deepseek",
+          "name": "deepseek-v4-flash",
+          "fallbacks": {},
+          "controls": {
+            "reasoning_effort": null,
+            "speed": null
+          }
+        },
+        "git": {
+          "author": null
+        },
+        "prepare": {
+          "steps": [],
+          "timeout_ms": 300000
+        },
+        "execution": {
+          "mode": "normal",
+          "approval": "prompt"
+        },
+        "checkpoint": {
+          "exclude_globs": [],
+          "skip_git_hooks": false,
+          "commit_timeout_ms": 30000
+        },
+        "clone": {
+          "enabled": true
+        },
+        "run_branch": {
+          "enabled": true,
+          "push": true
+        },
+        "meta_branch": {
+          "enabled": true,
+          "push": true
+        },
+        "environment": {
+          "id": "default",
+          "provider": "docker",
+          "image": {
+            "docker": "buildpack-deps:noble",
+            "dockerfile": null
+          },
+          "resources": {
+            "cpu": 2,
+            "memory": "4GB",
+            "disk": null
+          },
+          "network": {
+            "mode": "allow_all",
+            "allow": []
+          },
+          "lifecycle": {
+            "preserve": false,
+            "stop_on_terminal": true,
+            "auto_stop": null
+          },
+          "labels": {},
+          "env": {}
+        },
+        "notifications": {},
+        "interviews": {
+          "provider": null,
+          "slack": null
+        },
+        "agent": {
+          "fabro_tools": false,
+          "mcps": {}
+        },
+        "hooks": [],
+        "scm": {
+          "provider": null,
+          "owner": null,
+          "repository": null,
+          "github": null
+        },
+        "pull_request": {
+          "enabled": true,
+          "draft": true,
+          "auto_merge": false,
+          "merge_strategy": "squash"
+        },
+        "artifacts": {
+          "include": []
+        },
+        "integrations": {
+          "github": {
+            "permissions": {}
+          }
+        }
+      }
+    },
+    "graph": {
+      "name": "Explore",
+      "nodes": {
+        "start": {
+          "id": "start",
+          "attrs": {
+            "shape": {
+              "String": "Mdiamond"
+            },
+            "label": {
+              "String": "Start"
+            }
+          }
+        },
+        "exit": {
+          "id": "exit",
+          "attrs": {
+            "label": {
+              "String": "Exit"
+            },
+            "shape": {
+              "String": "Msquare"
+            }
+          }
+        },
+        "explore": {
+          "id": "explore",
+          "attrs": {
+            "prompt": {
+              "String": "Use the shell and glob tools to explore this repository. List the top-level files, then read any README or configuration files you find. Write your findings to SUMMARY.md at the repo root (a short paragraph)."
+            },
+            "label": {
+              "String": "Explore"
+            }
+          }
+        }
+      },
+      "edges": [
+        {
+          "from": "start",
+          "to": "explore",
+          "attrs": {}
+        },
+        {
+          "from": "explore",
+          "to": "exit",
+          "attrs": {}
+        }
+      ],
+      "attrs": {
+        "goal": {
+          "String": "Explore the repository and write a short summary"
+        },
+        "rankdir": {
+          "String": "LR"
+        }
+      }
+    },
+    "graph_source": "digraph Explore {\n    graph [goal=\"Explore the repository and write a short summary\"]\n    rankdir=LR\n\n    start [shape=Mdiamond, label=\"Start\"]\n    exit  [shape=Msquare, label=\"Exit\"]\n\n    explore [label=\"Explore\", prompt=\"Use the shell and glob tools to explore this repository. List the top-level files, then read any README or configuration files you find. Write your findings to SUMMARY.md at the repo root (a short paragraph).\"]\n\n    start -> explore -> exit\n}\n",
+    "workflow_slug": "02-agent",
+    "source_directory": "/Users/apple/workspace/software-factory-fabro-demo",
+    "provenance": {
+      "server": {
+        "version": "0.316.0-nightly.0"
+      },
+      "client": {
+        "user_agent": "fabro-cli/0.316.0-nightly.0",
+        "name": "fabro-cli",
+        "version": "0.316.0-nightly.0"
+      },
+      "subject": {
+        "kind": "user",
+        "identity": {
+          "issuer": "fabro:dev",
+          "subject": "dev"
+        },
+        "login": "dev",
+        "auth_method": "dev_token"
+      }
+    },
+    "manifest_blob": "23b5a2cf3110a9042e4f98caf5d34b2ce2edb54eda2f3ae682eb55db950b3ee3",
+    "definition_blob": "65073dc8d958064972d08616563a9e7d0e75f68bbae363c89875e16acf72c518",
+    "git": {
+      "origin_url": "https://github.com/szgmwill/software-factory-fabro-demo",
+      "branch": "main",
+      "sha": "28dfe0860ae52667e665b3e6a647b372d8becc98",
+      "dirty": "dirty"
+    }
+  },
+  "web_url": "http://127.0.0.1:32276/runs/01KZXCH5HAZ6BPR3Y4FKG431FC",
+  "start": null,
+  "status": {
+    "kind": "starting"
+  },
+  "status_updated_at": "2026-08-13T11:01:17.638150Z",
+  "last_event_at": "2026-08-13T11:01:20.835640Z",
+  "pending_control": null,
+  "checkpoints": [],
+  "conclusion": null,
+  "sandbox": {
+    "kind": "ready",
+    "plan": {
+      "provider": "docker",
+      "image": "buildpack-deps:noble"
+    },
+    "instance": {
+      "provider": "docker",
+      "image": "buildpack-deps:noble",
+      "runtime": {
+        "id": "3ed5b5d5d064ae9aebde153c4b839f23ce377e2e02c58e05bad0d37a393d20b2",
+        "working_directory": "/workspace/software-factory-fabro-demo",
+        "repo_cloned": true,
+        "clone_origin_url": "https://github.com/szgmwill/software-factory-fabro-demo",
+        "clone_branch": "main",
+        "workspace_root": "/workspace",
+        "repos_root": "/repos",
+        "primary_repo_path": "/repos/szgmwill/software-factory-fabro-demo",
+        "primary_repo_link": "/workspace/software-factory-fabro-demo"
+      }
+    }
+  },
+  "pull_request": null,
+  "superseded_by": null,
+  "pending_interviews": {},
+  "stages": {}
+}
